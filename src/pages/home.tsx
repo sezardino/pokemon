@@ -5,7 +5,6 @@ import { useHomePage } from "../hooks/useHomePageData";
 
 export const HomePage = () => {
   const {
-    isLoading,
     page,
     pokemonData,
     searchString,
