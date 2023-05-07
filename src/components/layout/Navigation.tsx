@@ -10,10 +10,8 @@ const links = [
 ];
 
 const buttons = [
-  { label: "Login", href: ProjectUrl.Favorites },
-  { label: "Registration", href: ProjectUrl.Favorites },
-  { label: "Edit", href: ProjectUrl.Favorites },
-  { label: "Logout", href: ProjectUrl.Favorites },
+  { label: "Login", href: ProjectUrl.Login },
+  { label: "Registration", href: ProjectUrl.Register },
 ];
 
 export type NavigationProps = ComponentPropsWithoutRef<"header">;
@@ -46,6 +44,9 @@ export const Navigation: FC<NavigationProps> = (props) => {
                 text={button.label}
               />
             ))}
+
+            <Button text={"Edit"} href={ProjectUrl.Edit} />
+            <Button text={"Logout"} />
             <button
               type="button"
               className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
