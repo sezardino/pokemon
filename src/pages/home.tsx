@@ -1,4 +1,6 @@
+import { Fragment } from "react";
 import { Pagination } from "../components/base/Pagination";
+import { PokemonCard } from "../components/base/PokemonCard";
 import { useHomePage } from "../hooks/useHomePageData";
 
 export const HomePage = () => {
@@ -24,12 +26,13 @@ export const HomePage = () => {
 
       <ul className="grid grid-cols-3 gap-5">
         {pokemonData.map((pokemon) => (
-          <li key={pokemon?.id} className="border rounded-lg p-5">
-            {pokemon?.name}
-            {pokemon?.sprites?.front_default && (
-              <img src={pokemon?.sprites?.front_default} />
+          <Fragment key={pokemon?.id}>
+            {pokemon && (
+              <li className="border rounded-lg p-5">
+                <PokemonCard pokemon={pokemon} />
+              </li>
             )}
-          </li>
+          </Fragment>
         ))}
       </ul>
 
@@ -38,19 +41,6 @@ export const HomePage = () => {
         onPageChange={setPage}
         totalPages={totalPagesCount}
       />
-
-      {/* <ul className="flex flex-wrap gap-2 items-center mt-10">
-        {new Array(totalPages).fill(true).map((_, page) => (
-          <li key={page}>
-            <button
-              className="p-2 bg-slate-400 rounded-lg min-w-[2.5rem] min-h-[2.5rem]"
-              onClick={() => setPage(page + 1)}
-            >
-              {page + 1}
-            </button>
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 };
